@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>	</title>
+</head>
+<body style="background-image: url(bg.jpg);">
+	<h4>Муравьи:<span class="count_juki"></span></h4>
+		<h4>Очки:<span class="score"></span></h4>
+	<script type="text/javascript">	
+ let juki=0
+ let score=0
+let interv= function(){
+
+	let rand = Math.random()*1300 //случайное число до 5
+	let round = Math.round(rand) //округлить число 
+
+	let rand_top = Math.random()*700 //случайное число до 5
+	let round_top = Math.round(rand_top) //округлить число 
+	 	
+	let gross=document.createElement("img");
+	document.body.appendChild(gross);
+
+	gross.src="img.svg"
+	gross.style.height="100px";
+	gross.style.width="100px";
+	
+	gross.style.marginLeft=round+"px";
+	gross.style.marginTop=round_top+"px";
+	gross.style.position="absolute";
+
+	juki=juki+1;
+	document.querySelector(".count_juki").innerHTML=juki;
+
+	gross.onclick=function(){
+		gross.style.display="none"
+		score=score+1
+		document.querySelector(".score").innerHTML=score;
+	}
+}
+	let proverka=function(){
+		if(score==juki){
+			alert("ты выиграл");
+		}else{
+			alert("ты проиграл")
+		}
+	}
+
+setInterval(interv,1000)
+setTimeout(proverka,10000)
+</script>
+</body>
+</html>
